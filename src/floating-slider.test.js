@@ -20,6 +20,10 @@ jest.mock('react-native/Libraries/Utilities/BackHandler', () => ({
     addEventListener: jest.fn()
 }));
 
+jest.mock('expo-constants', () => ({
+    statusBarHeight: 50
+}));
+
 describe('useFloatingSlider', () => {
     const useIsFocusedMock = jest.fn();
     const removeBackHandler = jest.fn();
@@ -230,8 +234,8 @@ describe('useFloatingSlider', () => {
             // eslint-disable-next-line lodash/prefer-lodash-method
             expect(wrapper.find('SliderWrapper').props()).toEqual({
                 bottomOffset: null,
-                leftOffset: 454,
-                rightOffset: 454,
+                leftOffset: 460,
+                rightOffset: 460,
                 style: {
                     transform: [
                         { rotate: '-90deg' },
@@ -253,7 +257,7 @@ describe('useFloatingSlider', () => {
                 bottomOffset: null,
                 leftOffset: 10,
                 rightOffset: 10,
-                topOffset: 94,
+                topOffset: 100,
                 children: expect.any(Object),
                 onLayout: expect.any(Function)
             });
@@ -265,8 +269,8 @@ describe('useFloatingSlider', () => {
             // eslint-disable-next-line lodash/prefer-lodash-method
             expect(wrapper.find('SliderWrapper').props()).toEqual({
                 bottomOffset: null,
-                leftOffset: 454,
-                rightOffset: 454,
+                leftOffset: 460,
+                rightOffset: 460,
                 style: {
                     transform: [
                         {

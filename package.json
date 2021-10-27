@@ -3,5 +3,15 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "peerDependencies": {
+    "react": "*",
+    "react-dom": "*",
+    "react-magnetic-di": "*",
+    "react-native-paper": "*",
+    "@react-navigation/native": "*",
+    "expo-constants": "*",
+    "react-native": "*",
+    "styled-components": "*",
+    "@react-native-community/slider": "*",
+    "@codexporer.io/react-test-utils": "*"
   }
 }
