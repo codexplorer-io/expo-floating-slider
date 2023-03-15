@@ -1,4 +1,4 @@
-import { BackHandler } from 'react-native';
+import { BackHandler, TouchableWithoutFeedback } from 'react-native';
 import { act } from 'react-dom/test-utils';
 import { injectable } from 'react-magnetic-di';
 import {
@@ -32,6 +32,7 @@ describe('useFloatingSlider', () => {
         injectable(Root, createMockComponent('Root')),
         injectable(Slider, createMockComponent('Slider')),
         injectable(SliderWrapper, createMockComponent('SliderWrapper')),
+        injectable(TouchableWithoutFeedback, createMockComponent('TouchableWithoutFeedback')),
         injectable(useIsFocused, useIsFocusedMock),
         injectable(useTheme, () => ({
             colors: {
@@ -109,12 +110,13 @@ describe('useFloatingSlider', () => {
         });
         expect(result.hookResult.renderSlider()).not.toBe(null);
 
+        // eslint-disable-next-line lodash/prefer-lodash-method
+        const hideSlider = mountWithDi(
+            result.hookResult.renderSlider(),
+            { deps }
+        ).find('TouchableWithoutFeedback').prop('onPress');
         act(() => {
-            // eslint-disable-next-line lodash/prefer-lodash-method
-            mountWithDi(
-                result.hookResult.renderSlider(),
-                { deps }
-            ).find('TouchableWithoutFeedback').prop('onPress')();
+            hideSlider();
             result.update();
         });
 
