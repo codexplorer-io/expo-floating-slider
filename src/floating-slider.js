@@ -16,10 +16,10 @@ export const Root = styled.View`
 
 export const SliderWrapper = styled.View`
     position: absolute;
-    ${({ leftOffset }) => leftOffset !== null ? css`left: ${leftOffset}px` : null}
-    ${({ topOffset }) => topOffset !== null ? css`top: ${topOffset}px` : null}
-    ${({ rightOffset }) => rightOffset !== null ? css`right: ${rightOffset}px` : null}
-    ${({ bottomOffset }) => bottomOffset !== null ? css`bottom: ${bottomOffset}px` : null}
+    ${({ leftOffset }) => leftOffset !== null ? css`left: ${leftOffset}px;` : null}
+    ${({ topOffset }) => topOffset !== null ? css`top: ${topOffset}px;` : null}
+    ${({ rightOffset }) => rightOffset !== null ? css`right: ${rightOffset}px;` : null}
+    ${({ bottomOffset }) => bottomOffset !== null ? css`bottom: ${bottomOffset}px;` : null}
     padding: 10px;
     background-color: ${({ theme: { colors: { background } } }) => background};
     border: ${({ theme: { colors: { primary } } }) => `2px solid ${primary}`};
